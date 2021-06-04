@@ -1,0 +1,84 @@
+\chapter{Scientific results}
+\label{chap:papers}
+
+
+%% some additional settings and commands relevant for this section
+% command to include watermark, e.g. for accepted papers
+\newcommand{\watermark}[1]{\tikz[remember picture, overlay] \node [red,opacity=0.3,rotate=45,scale=5.0] at (current page.center) {#1};}
+
+% commands and settings for thumb indices created with \fancytab command
+\newcommand{\nop}{3}                                                % put in the number of papers you have in your thesis
+\newcommand{\rtw}{.12}                                              % relative width of thumb index (0.18 is used by printing company)
+\newcommand{\thumbheight}{\dimexpr\paperheight/\nop\relax}
+\FPeval{\rmpw}{1-\rtw}
+\fancytabsStyle{\Huge\scshape}
+\fancytabsHeight{\thumbheight}
+\fancytabsWidth{\rtw\paperwidth}
+\fancytabsCount{\nop}
+\fancytabsLeftColor{black}
+\fancytabsRightColor{black} 
+\fancytabsTop{0mm}
+% \fancytabsTextVPos{0.5} 
+% \fancytabsTextHPos
+% \fancytabsGap 
+%\fancytabsFloor 
+\fancytabsRotate{90}                    % change to 0 for non rotated index 
+\newcommand{\thumbindex}[2]{% 
+    \let\eastwest\undefined 
+    \let\multiplier\undefined 
+    \fancytab[RIGHT]{\scalebox{1.5}{\textbf{\textcolor{white}{#1}}}}{#2}
+    }
+% \thumbindex requires two inputs, text and a position index (numer between 1 and \nop (number of papers)
+
+%!!! note that the printing company can also add the thumbindexes, but you have to ask for it specifically, and you should create enough space (change the right margin as done here using the minipage environment). You may also want to move the text slightly to the left, since the printing company "cuts" 3 mm away in the resized 17 cm x 24 cm format (for A4 format this corresponds to about 3.7 mm)
+
+% note that the fancytabs-package is actually meant to be used in the definition of a new pagestyle (\fancypagestyle). One could define such a page style for this section but I don't feel its worth the effort.
+
+%--------------------------------------------------------------------------------------------------
+
+\pagestyle{empty}
+% Paper I
+%--------------------------------------------------------------------------------------------------
+\cleardoublepage
+\chapter*{Paper I}
+\begin{minipage}[c]{\rmpw\linewidth}
+\thumbindex{I}{1}
+\section*{title}
+\noindent author1 author2 author3 author4 author5 author6 author7 author8 author9 author10 author11 author12\\
+\noindent \textit{journal}, \textbf{volume/number} (year)
+\end{minipage}
+\cleardoublepage
+%\includepdf[pages=-]{papers/paper-1.pdf} %KD
+%\includepdf[pages=1,pagecommand={\watermark{ACCEPTED}}]{papers/paper-1.pdf}
+%\includepdf[pages=2-]{papers/paper-1.pdf}
+
+% Paper II
+%--------------------------------------------------------------------------------------------------
+\chapter*{Paper II}
+\begin{minipage}[c]{\rmpw\linewidth}
+\thumbindex{II}{2}
+\section*{title}
+\noindent authors\\
+\noindent \textit{journal}, \textbf{volume/number} (year)
+\end{minipage}
+\cleardoublepage
+%\includepdf[pages=-]{papers/paper-2.pdf} %KD
+
+% Paper III
+%--------------------------------------------------------------------------------------------------
+\chapter*{Paper III}
+\begin{minipage}[c]{\rmpw \linewidth}
+\thumbindex{III}{3}
+\section*{title}
+\noindent authors\\
+\noindent \textit{journal}, \textbf{volume/number} (year)
+\end{minipage}
+
+% consider adding a copyright statement for unpublished work or non-open source publications (you have to ask for permission by the journal if you want to publish your thesis, e.g. in BORA) 
+\newpage
+\vspace*{\fill}
+\noindent\textcopyright~The copyright holder for this preprint is the authors. All rights reserved. No further reuse allowed without permission. 
+
+%\includepdf[pages=-]{papers/paper-3.pdf} %KD
+
+%--------------------------------------------------------------------------------------------------

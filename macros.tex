@@ -1,0 +1,97 @@
+%====================================================
+%-------------Macro definitions go here--------------
+%====================================================
+
+%
+% Differentials
+%
+\newcommand{\tdiff}[2]{\ensuremath{\frac{d#2}{d{#1}}}}
+\newcommand{\tdifforder}[3]{\ensuremath{\frac{d^{#2}#3}{d{#1}^{#2}}}}
+\newcommand{\pdiff}[2]{\ensuremath{\frac{\partial#2 }{\partial#1}}}
+\newcommand{\pdifforder}[3]{\ensuremath{\frac{\partial^{#2}#3}{\partial{#1}^{#2}}}}
+
+%
+% Linear algebra
+%
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\mat}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\tildemat}[1]{\ensuremath{\widetilde{\mat{#1}}}}
+
+
+%
+% Misc macros
+%
+%\renewcommand{\equiv}[0]{\ensuremath{:=}}
+\newcommand{\etal}{\textit{et al. }}
+\newcommand{\paperheader}[2]{\noindent\textbf{Paper #1}: \textit{#2}\\}
+% \newcommand{\paperitem}[3]{\noindent\textbf{Paper #1}: \textit{#2}\vspace{1em}\\\noindent #3\vspace{2em}}
+\newcommand{\paperitem}[4]{\noindent\textbf{Paper #1}: \textbf{#2}\vspace{1em}\\\textit{#3}\vspace{1em}\\\noindent #4\vspace{2em}}
+\newcommand{\tfinal}{\ensuremath{T_{\text{f}}}}
+\newcommand{\papernum}[1]{\textbf{#1}}
+
+\newcommand{\footurl}[1]{\footnote{\url{#1}}}		% url as footnote
+
+% some shortcuts for often used units (package siunitx)
+\DeclareSIUnit\met{\metre}
+\DeclareSIUnit\km{\kilo\metre}
+\DeclareSIUnit\sqkm{\square\kilo\metre}
+\DeclareSIUnit\sec{\second}
+\DeclareSIUnit\min{\minute}
+\DeclareSIUnit\kg{\kilo\gramm}
+\DeclareSIUnit\hPa{\hecto\pascal}
+\DeclareSIUnit\mps{\met\per\sec}
+\DeclareSIUnit\wpsm{\watt\per\square\met}
+
+% default figure width
+\newcommand{\figw}{0.9\linewidth}
+
+% referencing sections, figures, equations, tables
+\newcommand{\eref}[1]{~(\ref{#1})}
+\newcommand{\Fref}[1]{Figure~\ref{#1}}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
+%\newcommand{\sref}[1]{Sect.~\ref{#1}}
+\newcommand{\Tref}[1]{Table~\ref{#1}}
+\newcommand{\Eref}[1]{Equation~\ref{#1}}     
+
+% shortcuts for often used variables
+%\newcommand{\dTdz}{\frac{\partial \theta}{\partial z}}
+%\newcommand{\ldTdz}{\partial \theta /\partial z}
+%\newcommand{\wTv}{\overline{w'\theta_v '}}
+
+% shortcuts for institutions
+\newcommand{\GFI}{Geophysical Institute, University of Bergen}
+
+% colored text
+\newcommand{\tcr}[1]{\textcolor{red}{#1}}
+
+% papers
+\newcommand{\PI}{\mbox{Paper~I}}
+\newcommand{\PIT}{Title of \PI}
+\newcommand{\PIA}{Authors of \PI}
+\newcommand{\PIJ}{\noindent \textit{Journal}, \textbf{Volume}, Pages (year), doi:10.xxx/xxx}
+
+
+%
+% Theorem environments
+%
+\newtheorem{definition}{Definition}
+
+
+%
+% Counters
+%
+\newcounter{ct}
+
+%
+% For loop to include papers
+%
+\newcommand{\includepaperpages}[2]
+{
+	\forloop{ct}{0}{\value{ct} < #2}
+	{
+		\begin{figure}[ht]
+			\includegraphics[width=.99\textwidth]{#1\the\value{ct}.ps}
+		\end{figure}
+		\clearpage
+	}
+}
